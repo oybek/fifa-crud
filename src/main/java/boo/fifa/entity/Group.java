@@ -1,5 +1,9 @@
 
-package boo.fifa.entities;
+package boo.fifa.entity;
+
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 public class Group {
@@ -8,6 +12,10 @@ public class Group {
 	private char ch;
 
 	public Group() {
+	}
+
+	public Group(char ch) {
+		this.ch = ch;
 	}
 
 	public void setCh(char ch) {

@@ -1,5 +1,10 @@
 
-package boo.fifa.entities;
+package boo.fifa.entity;
+
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Team {

@@ -1,6 +1,14 @@
 
 package boo.fifa.controller;
 
+import boo.fifa.entity.Match;
+import boo.fifa.service.MatchService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
 @Controller
 public class MatchController {
 
@@ -8,35 +16,31 @@ public class MatchController {
 	private MatchService matchService;
 
 	// create
-	@ResponseBody
 	@Transactional
-	@RequestMapping(value = "/match", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Match createMatch(@RequestBody Match match) {
-		return matchService.createMatch(match);
+	@RequestMapping(value = "/match", method = RequestMethod.POST)
+	public ResponseEntity<Match> addMatch(@RequestBody Match match) {
+	    return null;
 	}
 
 	// read
-	@ResponseBody
 	@Transactional
-	@RequestMapping(value = "/match/{country1}/{country2}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Match getMatch(@PathVariable("country1") String country1, @PathVariable("country2") String country2) {
-		return matchService.getMatch(country1, country2);
+	@RequestMapping(value = "/match/{country1}/{country2}", method = RequestMethod.GET)
+	public ResponseEntity<Match> getMatch(@PathVariable("country1") String country1, @PathVariable("country2") String country2) {
+	    return null;
 	}
 
 	// update
-	@ResponseBody
 	@Transactional
-	@RequestMapping(value = "/match", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Match updateMatch(@RequestBody Match match) {
-		return matchService.updateMatch(match);
+	@RequestMapping(value = "/match", method = RequestMethod.PUT)
+	public ResponseEntity<Match> updateMatch(@RequestBody Match match) {
+	    return null;
 	}
 
 	// delete
-	@ResponseBody
 	@Transactional
-	@RequestMapping(value = "/match/{country1}/{country2}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public void deleteMatch(@PathVariable("country1") String country1, @PathVariable("country2") String country2) {
-		matchService.deleteMatch(country1, country2);
+	@RequestMapping(value = "/match/{country1}/{country2}", method = RequestMethod.DELETE)
+	public ResponseEntity<Match> deleteMatch(@PathVariable("country1") String country1, @PathVariable("country2") String country2) {
+	    return null;
 	}
 }
 

@@ -1,42 +1,45 @@
 
 package boo.fifa.controller;
 
-@Controller
+import boo.fifa.entity.Team;
+import boo.fifa.service.TeamService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
 public class TeamController {
 
 	@Autowired
 	private TeamService teamService;
 
 	// create
-	@ResponseBody
 	@Transactional
-	@RequestMapping(value = "/team", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Team createTeam(@RequestBody Team team) {
-		return teamService.createTeam(team);
+	@RequestMapping(value = "/team", method = RequestMethod.POST)
+	public ResponseEntity<Team> addTeam(@RequestBody Team team) {
+	    return null;
 	}
 
 	// read
-	@ResponseBody
 	@Transactional
-	@RequestMapping(value = "/team/{country}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Team getTeam(@PathVariable("country") String country) {
-		return teamService.getTeam(country);
+	@RequestMapping(value = "/team/{country}", method = RequestMethod.GET)
+	public ResponseEntity<Team> getTeam(@PathVariable("country") String country) {
+	    return null;
 	}
 
 	// update
-	@ResponseBody
 	@Transactional
-	@RequestMapping(value = "/team", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Team updateTeam(@RequestBody Team team) {
-		return teamService.updateTeam(team);
+	@RequestMapping(value = "/team", method = RequestMethod.PUT)
+	public ResponseEntity<Team> updateTeam(@RequestBody Team team) {
+	    return null;
 	}
 
 	// delete
-	@ResponseBody
 	@Transactional
-	@RequestMapping(value = "/team/{country}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public void deleteTeam(@PathVariable("country") String country) {
-		return teamService.deleteTeam(country);
+	@RequestMapping(value = "/team/{country}", method = RequestMethod.DELETE)
+	public ResponseEntity<Team> deleteTeam(@PathVariable("country") String country) {
+	    return null;
 	}
 }
 

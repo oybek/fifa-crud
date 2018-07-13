@@ -1,8 +1,13 @@
 
-package boo.fifa.entities;
+package boo.fifa.entity;
+
+import javax.persistence.*;
 
 @Entity
-@UniqueConstraint(columnNames={"team1", "team2"})
+@Table(
+        name="Match",
+		uniqueConstraints=@UniqueConstraint(columnNames={"team1", "team2"})
+)
 public class Match {
 
 	@ManyToOne
