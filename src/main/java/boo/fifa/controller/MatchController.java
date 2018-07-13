@@ -18,7 +18,7 @@ public class MatchController {
 	// read
 	@ResponseBody
 	@Transactional
-	@RequestMappin(value = "/match/{country1}/{country2}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/match/{country1}/{country2}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Match getMatch(@PathVariable("country1") String country1, @PathVariable("country2") String country2) {
 		return matchService.getMatch(country1, country2);
 	}
@@ -26,7 +26,7 @@ public class MatchController {
 	// update
 	@ResponseBody
 	@Transactional
-	@RequestMappin(value = "/match", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/match", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Match updateMatch(@RequestBody Match match) {
 		return matchService.updateMatch(match);
 	}
@@ -34,7 +34,7 @@ public class MatchController {
 	// delete
 	@ResponseBody
 	@Transactional
-	@RequestMappin(value = "/match/{country1}/{country2}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/match/{country1}/{country2}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public void deleteMatch(@PathVariable("country1") String country1, @PathVariable("country2") String country2) {
 		matchService.deleteMatch(country1, country2);
 	}

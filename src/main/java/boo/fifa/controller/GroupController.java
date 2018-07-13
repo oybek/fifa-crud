@@ -18,7 +18,7 @@ public class GroupController {
 	// read
 	@ResponseBody
 	@Transactional
-	@RequestMappin(value = "/group/{groupCh}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/group/{groupCh}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Group getGroup(@PathVariable("groupCh") char groupCh) {
 		return groupService.getGroup(groupCh);
 	}
@@ -26,7 +26,7 @@ public class GroupController {
 	// update
 	@ResponseBody
 	@Transactional
-	@RequestMappin(value = "/group", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/group", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Group updateGroup(@RequestBody Group group) {
 		return groupService.updateGroup(group);
 	}
@@ -34,7 +34,7 @@ public class GroupController {
 	// delete
 	@ResponseBody
 	@Transactional
-	@RequestMappin(value = "/group/{groupCh}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/group/{groupCh}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public void deleteGroup(@PathVariable("groupCh") char groupCh) {
 		groupService.deleteGroup(group);
 	}
