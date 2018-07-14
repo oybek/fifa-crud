@@ -4,18 +4,18 @@ package boo.fifa.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(
-        name="Match",
-		uniqueConstraints=@UniqueConstraint(columnNames={"team1", "team2"})
-)
 public class Match {
 
+	@Id
+	@GeneratedValue
+	private long id;
+
 	@ManyToOne
-	@JoinColumn(name = "country", nullable = false)
+	@JoinColumn(name = "country", nullable = false, insertable = false, updatable = false)
 	private Team team1;
 
 	@ManyToOne
-	@JoinColumn(name = "country", nullable = false)
+	@JoinColumn(name = "country", nullable = false, insertable = false, updatable = false)
 	private Team team2;
 
 	private int team1GoalNum;
@@ -23,6 +23,14 @@ public class Match {
 	private int team2GoalNum;
 
 	public Match() {
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public void setTeam1(Team team1) {
