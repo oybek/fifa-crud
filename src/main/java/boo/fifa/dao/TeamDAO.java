@@ -18,16 +18,20 @@ public class TeamDAO {
 	}
 
 	public void createTeam(Team team) {
+		getCurrentSession().save(team);
 	}
 
 	public Team getTeam(String country) {
-		return null;
+		return getCurrentSession().get(Team.class, country);
 	}
 
 	public void updateTeam(Team team) {
+	    getCurrentSession().update(team);
 	}
 
 	public void deleteTeam(String country) {
+		Team team = getCurrentSession().load(Team.class, country);
+		getCurrentSession().delete(team);
 	}
 }
 

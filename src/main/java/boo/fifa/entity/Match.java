@@ -4,16 +4,15 @@ package boo.fifa.entity;
 import javax.persistence.*;
 
 @Entity
+@IdClass(TeamPair.class)
 public class Match {
 
-	@Id
-	@GeneratedValue
-	private long id;
-
+    @Id
 	@ManyToOne
 	@JoinColumn(name = "country", nullable = false, insertable = false, updatable = false)
 	private Team team1;
 
+    @Id
 	@ManyToOne
 	@JoinColumn(name = "country", nullable = false, insertable = false, updatable = false)
 	private Team team2;
@@ -22,16 +21,7 @@ public class Match {
 
 	private int team2GoalNum;
 
-	public Match() {
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
+	public Match() {}
 
 	public void setTeam1(Team team1) {
 		this.team1 = team1;

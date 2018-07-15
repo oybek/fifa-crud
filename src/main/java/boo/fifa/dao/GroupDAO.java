@@ -18,16 +18,20 @@ public class GroupDAO {
 	}
 
 	public void createGroup(Group group) {
+		getCurrentSession().save(group);
 	}
 
 	public Group getGroup(char ch) {
-		return null;
+		return getCurrentSession().get(Group.class, ch);
 	}
 
 	public void updateGroup(Group group) {
+		getCurrentSession().update(group);
 	}
 
 	public void deleteGroup(char ch) {
+		Group group = getCurrentSession().load(Group.class, ch);
+		getCurrentSession().delete(group);
 	}
 }
 
