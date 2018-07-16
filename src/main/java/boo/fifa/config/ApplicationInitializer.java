@@ -19,3 +19,4 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
         return new String[] { "/" };
     }
 }
+

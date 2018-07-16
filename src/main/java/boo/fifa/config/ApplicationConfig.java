@@ -21,41 +21,41 @@ import java.util.Properties;
 @ComponentScan( basePackages = { "boo.fifa" } )
 public class ApplicationConfig {
 
-   @Autowired
-   private Environment env;
+	@Autowired
+	private Environment env;
 
-   @Bean(name="sessionFactory")
-   public LocalSessionFactoryBean sessionFactory() {
-      LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-      sessionFactory.setDataSource(dataSource());
-      sessionFactory.setPackagesToScan("boo.fifa.entity");
-      sessionFactory.setHibernateProperties(hibernateProperties());
+	@Bean(name="sessionFactory")
+	public LocalSessionFactoryBean sessionFactory() {
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+		sessionFactory.setDataSource(dataSource());
+		sessionFactory.setPackagesToScan("boo.fifa.entity");
+		sessionFactory.setHibernateProperties(hibernateProperties());
 
-      return sessionFactory;
-   }
+		return sessionFactory;
+	}
 
-    @Bean
-    public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
-        dataSource.setUsername("fifa");
-        dataSource.setPassword("fifa");
+	@Bean
+	public DataSource dataSource() {
+		BasicDataSource dataSource = new BasicDataSource();
+		dataSource.setDriverClassName("org.h2.Driver");
+		dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
+		dataSource.setUsername("fifa");
+		dataSource.setPassword("fifa");
 
-        return dataSource;
-    }
+		return dataSource;
+	}
 
-    @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-        return new PersistenceExceptionTranslationPostProcessor();
-    }
+	@Bean
+	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+		return new PersistenceExceptionTranslationPostProcessor();
+	}
 
-    private Properties hibernateProperties() {
-        return new Properties() { {
-            setProperty("hibernate.hbm2ddl.auto", "create-drop");
-            setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-            setProperty("hibernate.globally_quoted_identifiers", "true");
-        } };
-    }
+	private Properties hibernateProperties() {
+		return new Properties() { {
+			setProperty("hibernate.hbm2ddl.auto", "create-drop");
+			setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+			setProperty("hibernate.globally_quoted_identifiers", "true");
+		} };
+	}
 }
 

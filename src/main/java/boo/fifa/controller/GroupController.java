@@ -18,7 +18,7 @@ public class GroupController {
 	// create
 	@RequestMapping(value = "/group/", method = RequestMethod.POST)
 	public ResponseEntity<String> addGroup(@RequestBody Group group) {
-	    return new ResponseEntity<String>("hello", HttpStatus.OK);
+		return new ResponseEntity<String>("hello", HttpStatus.OK);
 	}
 
 	// read

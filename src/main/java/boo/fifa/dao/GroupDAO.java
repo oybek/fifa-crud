@@ -14,7 +14,7 @@ public class GroupDAO {
 	private SessionFactory sessionFactory;
 
 	private Session getCurrentSession() {
-	    return this.sessionFactory.getCurrentSession();
+		return this.sessionFactory.getCurrentSession();
 	}
 
 	public void createGroup(Group group) {
