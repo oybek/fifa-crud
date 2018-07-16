@@ -75,6 +75,6 @@
 			</plugins>
 		</pluginManagement>
 
-		<finalName>FIFA</finalName>
+		<finalName>fifa</finalName>
 	</build>
 </project>
